@@ -67,11 +67,11 @@
 // Fill these in for your network and ASR receiver before flashing.
 // scripts/asr_stream_server.py is a minimal reference receiver you can run
 // on a laptop on the same network for an end-to-end demo.
-#define WIFI_SSID            "CHANGE_ME"
-#define WIFI_PASSWORD         "CHANGE_ME"
+#define WIFI_SSID            "ACT-ai_103819226960"
+#define WIFI_PASSWORD         "58702087"
 #define WIFI_CONNECT_TIMEOUT_MS  15000
 
-#define ASR_SERVER_HOST       "192.168.1.100"  // your ASR receiver's LAN IP
+#define ASR_SERVER_HOST       "192.168.0.6"  // your ASR receiver's LAN IP
 #define ASR_SERVER_PORT       8000
 #define ASR_STREAM_PATH       "/stream"
 
