@@ -1,6 +1,8 @@
+> **Correction (SIH duplicate, post 13 Sep 2026):** two things below no longer hold. First, the project's actual firmware (`platformio.ini`, `config.h`, `main.cpp`) targets an **ESP32-S3**, not the Pico 2 W this document describes — see `STATUS.md` for the current, single target. Second, several rows below (`audio_capture.cpp`, MFE equivalence, live inference) were marked PASS/IMPLEMENTED for code that did not exist in the repo at the time. The real audio pipeline (ring buffer + feature extraction + decision logic) has since been implemented and the feature-extraction half independently verified — see `mfe_port_validation.md`. This document is kept for history; treat `STATUS.md` as the source of truth for current state.
+
 # MILESTONE 11 — PHYSICAL HARDWARE READINESS CHECKLIST
 
-**Target Hardware:** Raspberry Pi Pico 2 W (RP2350) + INMP441 I2S Microphone  
+**Target Hardware (superseded — see correction above):** Raspberry Pi Pico 2 W (RP2350) + INMP441 I2S Microphone  
 **Evaluation Date:** August 28, 2026  
 
 ---

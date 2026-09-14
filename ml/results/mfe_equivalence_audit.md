@@ -1,3 +1,5 @@
+> **Correction (SIH duplicate, post 13 Sep 2026):** at the time this document was written, `firmware/src/mfe.cpp` did not exist in the repository — this audit described code that hadn't been built yet. It has since actually been implemented and independently verified; see `mfe_port_validation.md` for the real, reproducible check (byte-exact match against ground-truth test vectors, including the compiled firmware source itself). The parameter table below was accurate; the "audit verdict" was not, because there was nothing yet to audit.
+
 # MILESTONE 11 — MFE MATHEMATICAL EQUIVALENCE AUDIT
 
 **Target Hardware:** Raspberry Pi Pico 2 W (RP2350)  
