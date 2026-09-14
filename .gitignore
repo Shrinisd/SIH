@@ -25,3 +25,7 @@ Thumbs.db
 # Local search/debug dumps — never commit these
 search_results.txt
 *.local.txt
+
+
+# ASR reference server output (local captures, never commit)
+asr_captures/
