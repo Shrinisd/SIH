@@ -36,10 +36,7 @@ namespace {
   audio_capture::RingBuffer g_ring;
   decision::DecisionEngine g_decision;
   bool g_wifi_ready = false;
-
-  float g_last_conf = 0.0f;
   float g_last_latency_ms = 0.0f;
-  bool g_last_vad = false;
 }
 
 // Render system telemetry directly to SSD1306 OLED
@@ -225,7 +222,6 @@ void loop() {
   g_ring.get_window(window_1s);
 
   const bool vad = audio_capture::is_speech(window_1s, AUDIO_VAD_RMS_THRESHOLD);
-  g_last_vad = vad;
 
   int pred_class = -1;
   float target_conf = 0.0f;
@@ -266,7 +262,6 @@ void loop() {
   } else {
     g_last_latency_ms = 0.0f;
   }
-  g_last_conf = target_conf;
 
   uint32_t now = millis();
   decision::Result result = g_decision.process(pred_class, target_conf, now, vad);
