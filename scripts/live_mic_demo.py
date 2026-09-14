@@ -150,6 +150,11 @@ def main():
                           "'speech' and gets fed to the model. Watch the live RMS number "
                           "printed below; raise this if it fires on room silence, lower it "
                           "if it never fires when you speak. (default: 400)")
+    ap.add_argument("--wake-threshold", type=float, default=0.75,
+                     help="Model confidence (0.0-1.0) required for the target class before "
+                          "a frame counts as a 'hit'. Raise this (e.g. 0.9) if the wake word "
+                          "is confirming on room noise/silence with no one speaking. "
+                          "(default: 0.75, matches firmware/include/config.h WAKE_WORD_THRESHOLD)")
     ap.add_argument("--stream", action="store_true",
                      help="On a confirmed wake, stream the next few seconds of mic audio "
                           "to the ASR reference server (start that first: "
@@ -172,7 +177,7 @@ def main():
     input_details = interp.get_input_details()[0]
     output_details = interp.get_output_details()[0]
 
-    engine = DecisionEngine()
+    engine = DecisionEngine(threshold=args.wake_threshold)
 
     ring = np.zeros(WINDOW_SAMPLES, dtype=np.int16)
     filled = 0
