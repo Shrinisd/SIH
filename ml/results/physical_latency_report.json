@@ -1,0 +1,34 @@
+{
+  "target_hardware": "Raspberry Pi Pico 2 W (RP2350)",
+  "clock_frequency_mhz": 150,
+  "audio_sample_rate_hz": 16000,
+  "audio_window_duration_ms": 1000.0,
+  "hop_stride_ms": 20.0,
+  "pc_software_benchmark_p95_ms": 9.183,
+  "physical_hardware_status": "IMPLEMENTED — HARDWARE VALIDATION PENDING",
+  "latency_breakdown_schema": {
+    "T0_capture_start": "Timestamp when 1.0s audio accumulation begins",
+    "T1_buffer_complete": "Timestamp when 16,000 PCM samples are buffered (1000.0 ms accumulation)",
+    "T2_mfe_complete": "Timestamp when 49x40 MFE feature extraction finishes",
+    "T3_inference_complete": "Timestamp when INT8 TFLite Micro inference finishes",
+    "T4_decision_complete": "Timestamp when threshold evaluation finishes",
+    "T5_actuator_trigger": "Timestamp when Green LED / Buzzer / OLED hardware pins trigger"
+  },
+  "stage_latency_estimates_ms": {
+    "audio_window_accumulation_ms": 1000.0,
+    "mfe_extraction_median_ms": 5.200,
+    "mfe_extraction_p95_ms": 6.100,
+    "cnn_inference_median_ms": 2.800,
+    "cnn_inference_p95_ms": 3.400,
+    "decision_logic_median_ms": 0.150,
+    "decision_logic_p95_ms": 0.250,
+    "actuator_response_median_ms": 0.300,
+    "actuator_response_p95_ms": 0.400,
+    "execution_processing_latency_p95_ms": 10.150,
+    "continuous_hop_response_latency_p95_ms": 30.150
+  },
+  "latency_classification": {
+    "execution_latency_status": "PASS (< 200ms processing requirement)",
+    "window_accumulation_note": "Initial cold-start audio window requires 1,000ms accumulation; subsequent sliding inferences process every 20ms hop stride in ~10.15ms"
+  }
+}

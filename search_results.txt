@@ -1,0 +1,227 @@
+=== SEARCH TERM: sketch.ino (9 hits) ===
+  .\ml\results\milestone10_platform_audit.md:23 -> │   ├── sketch.ino                 # Arduino main sketch with actuator control & test vector loop
+  .\ml\results\milestone10_platform_audit.md:65 -> 2. **`firmware/sketch.ino`**:
+  .\ml\results\milestone10_platform_audit.md:81 -> - **`firmware/sketch.ino`**: Wraps model inference through `ModelRunner::predict()` which delegates directly to Eloquent
+  .\ml\results\milestone10_platform_audit.md:130 -> - **OLED Display**: `Adafruit_SSD1306 display` on I2C address `0x3C` (`firmware/sketch.ino`).
+  .\ml\results\milestone10_platform_audit.md:141 -> - **`firmware/sketch.ino`**: `loop()` iterates deterministically over `TEST_VECTORS`, evaluates inference, prints latenc
+  .\ml\results\milestone11_firmware_audit.md:11 -> The `firmware/` root contains both the newly refactored modular C++ firmware architecture (`firmware/src/`, `firmware/in
+  .\ml\results\milestone11_firmware_audit.md:29 -> ├── sketch.ino                  # [LEGACY] Wokwi Arduino entry point
+  .\ml\results\milestone11_firmware_audit.md:59 -> - **`firmware/sketch.ino`**: Legacy Arduino entry point for Wokwi simulation.
+  .\ml\results\milestone11_firmware_audit.md:67 -> - `firmware/sketch.ino`, `firmware/config.h` (root), `firmware/model_runner.h/.cpp` (root), and `firmware/model_data.h` 
+=== SEARCH TERM: firmware/config.h (2 hits) ===
+  .\ml\results\milestone10_platform_audit.md:62 -> 1. **`firmware/config.h`**:
+  .\ml\results\milestone11_firmware_audit.md:67 -> - `firmware/sketch.ino`, `firmware/config.h` (root), `firmware/model_runner.h/.cpp` (root), and `firmware/model_data.h` 
+=== SEARCH TERM: firmware/model_runner.h (1 hits) ===
+  .\ml\results\milestone11_firmware_audit.md:67 -> - `firmware/sketch.ino`, `firmware/config.h` (root), `firmware/model_runner.h/.cpp` (root), and `firmware/model_data.h` 
+=== SEARCH TERM: firmware/model_runner.cpp (3 hits) ===
+  .\ml\results\milestone10_platform_audit.md:69 -> 3. **`firmware/model_runner.cpp`**:
+  .\ml\results\milestone10_platform_audit.md:80 -> - **`firmware/model_runner.cpp`**: Line 6 contains `#include <EloquentTinyML.h>` and instantiates static interpreter obj
+  .\ml\results\milestone11_firmware_audit.md:64 -> - EloquentTinyML remains present **only** in the legacy `wokwi/libraries.txt` and root `firmware/model_runner.cpp` for o
+=== SEARCH TERM: EloquentTinyML (27 hits) ===
+  .\firmware\model_runner.cpp:5 -> // Include EloquentTinyML for ESP32 Arduino / Wokwi TFLite Micro execution
+  .\firmware\model_runner.cpp:6 -> #include <EloquentTinyML.h>
+  .\firmware\model_runner.cpp:8 -> // Instantiate EloquentTinyML TFLite Micro interpreter
+  .\firmware\model_runner.cpp:41 -> // EloquentTinyML automatically passes INT8 features to tensor input and dequantizes output
+  .\ml\results\integration_architecture.md:44 -> | **TFLite Micro Runtime** | **REAL** | C++ inference engine (`EloquentTinyML` / TFLite Micro). |
+  .\ml\results\integration_inventory.md:43 -> * `EloquentTinyML` (TensorFlow Lite Micro C++ engine)
+  .\ml\results\milestone10_platform_audit.md:21 -> │   ├── model_runner.cpp           # TFLite Micro engine wrapper (currently using EloquentTinyML)
+  .\ml\results\milestone10_platform_audit.md:54 -> │   └── libraries.txt              # Arduino library list (EloquentTinyML, Adafruit SSD1306, GFX)
+  .\ml\results\milestone10_platform_audit.md:70 -> - Inclusion of `<EloquentTinyML.h>` which uses ESP32-specific header abstractions and Arduino wrapper constructs.
+  .\ml\results\milestone10_platform_audit.md:77 -> ## 3. Identified EloquentTinyML Dependencies
+  .\ml\results\milestone10_platform_audit.md:79 -> - **`wokwi/libraries.txt`**: Line 4 lists `EloquentTinyML`.
+  .\ml\results\milestone10_platform_audit.md:80 -> - **`firmware/model_runner.cpp`**: Line 6 contains `#include <EloquentTinyML.h>` and instantiates static interpreter obj
+  .\ml\results\milestone10_platform_audit.md:81 -> - **`firmware/sketch.ino`**: Wraps model inference through `ModelRunner::predict()` which delegates directly to Eloquent
+  .\ml\results\milestone10_platform_audit.md:124 -> - **`wokwi/libraries.txt`**: Library dependencies (`Adafruit SSD1306`, `Adafruit GFX Library`, `EloquentTinyML`).
+  .\ml\results\milestone10_platform_audit.md:154 -> All project components have been audited. The repository contains a complete, working ML training and verification pipel
+  .\ml\results\milestone10_report.md:14 -> - Identified all ESP32-S3 pinouts, EloquentTinyML library dependencies, TFLM scripts, MFE configuration, Wokwi diagram f
+  .\ml\results\milestone10_report.md:20 -> ### Task 3 — EloquentTinyML Removal Plan
+  .\ml\results\milestone10_report.md:21 -> - Audited EloquentTinyML compatibility with RP2350. EloquentTinyML is an ESP32/Arduino-centric wrapper containing hardco
+  .\ml\results\milestone10_report.md:22 -> - Removed EloquentTinyML from the Pico 2 W deployment path.
+  .\ml\results\milestone10_report.md:79 -> | **EloquentTinyML** | **Removed** | Replaced with direct C++ TensorFlow Lite Micro API |
+  .\ml\results\milestone11_firmware_audit.md:28 -> ├── model_runner.h/.cpp         # [LEGACY] EloquentTinyML wrapper implementation
+  .\ml\results\milestone11_firmware_audit.md:58 -> - **`wokwi/libraries.txt`**: Legacy Arduino dependencies (`EloquentTinyML`, `Adafruit SSD1306`, `Adafruit GFX`).
+  .\ml\results\milestone11_firmware_audit.md:61 -> ### F. Remaining ESP32 / EloquentTinyML Dependencies
+  .\ml\results\milestone11_firmware_audit.md:63 -> - The production Pico 2 W firmware build path (`CMakeLists.txt` + `firmware/src/`) does **not** include `<EloquentTinyML
+  .\ml\results\milestone11_firmware_audit.md:64 -> - EloquentTinyML remains present **only** in the legacy `wokwi/libraries.txt` and root `firmware/model_runner.cpp` for o
+  .\ml\results\milestone11_runtime_verification.md:18 -> | **EloquentTinyML Wrapper** | **REMOVED** | **VERIFIED** — No EloquentTinyML dependencies in Pico 2 W path |
+  .\wokwi\libraries.txt:4 -> EloquentTinyML
+=== SEARCH TERM: Arduino (12 hits) ===
+  .\firmware\model_runner.cpp:3 -> #include <Arduino.h>
+  .\firmware\model_runner.cpp:5 -> // Include EloquentTinyML for ESP32 Arduino / Wokwi TFLite Micro execution
+  .\firmware\sketch.ino:1 -> #include <Arduino.h>
+  .\ml\results\milestone10_platform_audit.md:23 -> │   ├── sketch.ino                 # Arduino main sketch with actuator control & test vector loop
+  .\ml\results\milestone10_platform_audit.md:54 -> │   └── libraries.txt              # Arduino library list (EloquentTinyML, Adafruit SSD1306, GFX)
+  .\ml\results\milestone10_platform_audit.md:70 -> - Inclusion of `<EloquentTinyML.h>` which uses ESP32-specific header abstractions and Arduino wrapper constructs.
+  .\ml\results\milestone10_report.md:21 -> - Audited EloquentTinyML compatibility with RP2350. EloquentTinyML is an ESP32/Arduino-centric wrapper containing hardco
+  .\ml\results\milestone11_firmware_audit.md:29 -> ├── sketch.ino                  # [LEGACY] Wokwi Arduino entry point
+  .\ml\results\milestone11_firmware_audit.md:58 -> - **`wokwi/libraries.txt`**: Legacy Arduino dependencies (`EloquentTinyML`, `Adafruit SSD1306`, `Adafruit GFX`).
+  .\ml\results\milestone11_firmware_audit.md:59 -> - **`firmware/sketch.ino`**: Legacy Arduino entry point for Wokwi simulation.
+  .\ml\results\milestone11_firmware_audit.md:64 -> - EloquentTinyML remains present **only** in the legacy `wokwi/libraries.txt` and root `firmware/model_runner.cpp` for o
+  .\ml\results\milestone11_firmware_audit.md:67 -> - `firmware/sketch.ino`, `firmware/config.h` (root), `firmware/model_runner.h/.cpp` (root), and `firmware/model_data.h` 
+=== SEARCH TERM: ESP32 (41 hits) ===
+  .\dataset\README.md:41 -> To ensure robust model generalization on edge hardware (ESP32-S3):
+  .\firmware\config.h:4 -> // Microcontroller & Hardware Pins (ESP32-S3 Wokwi Circuit)
+  .\firmware\model_runner.cpp:5 -> // Include EloquentTinyML for ESP32 Arduino / Wokwi TFLite Micro execution
+  .\firmware\sketch.ino:85 -> Serial.println(F("Target MCU: ESP32-S3 | Runtime: TFLite Micro"));
+  .\firmware\sketch.ino:124 -> // Measure TFLite Micro Invoke latency on ESP32
+  .\ml\results\integration_architecture.md:30 -> |               4. ESP32-S3 WOKWI HARDWARE ACTUATORS                |
+  .\ml\results\integration_architecture.md:48 -> | **Wokwi Circuit Simulation** | **SIMULATED** | ESP32-S3 virtual hardware simulation environment. |
+  .\ml\results\integration_inventory.md:32 -> * **Microcontroller:** ESP32-S3 (`board-esp32-s3-devkitc-1`)
+  .\ml\results\milestone10_platform_audit.md:5 -> **Migration Scope:** ESP32-S3 DevKitC-1 → Raspberry Pi Pico 2 W (RP2350 / ARM Cortex-M33)
+  .\ml\results\milestone10_platform_audit.md:53 -> │   ├── diagram.json               # ESP32-S3 circuit diagram
+  .\ml\results\milestone10_platform_audit.md:60 -> ## 2. Identified ESP32-Specific Code
+  .\ml\results\milestone10_platform_audit.md:63 -> - GPIO Pin mappings hardcoded for ESP32-S3 DevKitC-1 (`PIN_OLED_SDA 8`, `PIN_OLED_SCL 9`, `PIN_LED_GREEN 4`, `PIN_LED_RE
+  .\ml\results\milestone10_platform_audit.md:64 -> - Header comments explicitly referencing `(ESP32-S3 Wokwi Circuit)`.
+  .\ml\results\milestone10_platform_audit.md:66 -> - `Wire.begin(PIN_OLED_SDA, PIN_OLED_SCL)` using ESP32 pin definitions.
+  .\ml\results\milestone10_platform_audit.md:67 -> - Serial banner output referencing `Target MCU: ESP32-S3`.
+  .\ml\results\milestone10_platform_audit.md:68 -> - ESP32 microsecond timing `micros()` usage in loop timing.
+  .\ml\results\milestone10_platform_audit.md:70 -> - Inclusion of `<EloquentTinyML.h>` which uses ESP32-specific header abstractions and Arduino wrapper constructs.
+  .\ml\results\milestone10_platform_audit.md:72 -> - Component declaration `"type": "board-esp32-s3-devkitc-1"`.
+  .\ml\results\milestone10_platform_audit.md:73 -> - Wiring pin connections tied to ESP32 pin names (`esp:8`, `esp:9`, `esp:4`, `esp:5`, `esp:6`).
+  .\ml\results\milestone10_platform_audit.md:123 -> - **`wokwi/diagram.json`**: Board layout for ESP32-S3 DevKitC-1 with SSD1306 OLED, Green LED, Red LED, and Buzzer.
+  .\ml\results\milestone10_platform_audit.md:131 -> - **Green LED**: `PIN_LED_GREEN` (GPIO 4 on ESP32-S3) turned HIGH on wake-word detection.
+  .\ml\results\milestone10_platform_audit.md:132 -> - **Red LED**: `PIN_LED_RED` (GPIO 5 on ESP32-S3) turned HIGH when idle / no wake-word.
+  .\ml\results\milestone10_platform_audit.md:133 -> - **Piezo Buzzer**: `PIN_BUZZER` (GPIO 6 on ESP32-S3) pulsed using `tone(PIN_BUZZER, 2000, 150)` on detection.
+  .\ml\results\milestone10_platform_audit.md:154 -> All project components have been audited. The repository contains a complete, working ML training and verification pipel
+  .\ml\results\milestone10_report.md:1 -> # MILESTONE 10 FINAL REPORT — ESP32-S3 TO RASPBERRY PI PICO 2 W (RP2350) MIGRATION & DEPLOYMENT PIPELINE UNIFICATION
+  .\ml\results\milestone10_report.md:14 -> - Identified all ESP32-S3 pinouts, EloquentTinyML library dependencies, TFLM scripts, MFE configuration, Wokwi diagram f
+  .\ml\results\milestone10_report.md:21 -> - Audited EloquentTinyML compatibility with RP2350. EloquentTinyML is an ESP32/Arduino-centric wrapper containing hardco
+  .\ml\results\milestone10_report.md:62 -> - Documented in [`ml/results/wokwi_platform_status.md`](file:///d:/SIH%202026/Voice_Activator_Project/ml/results/wokwi_p
+  .\ml\results\milestone11_firmware_audit.md:26 -> ├── config.h                    # [LEGACY] Wokwi ESP32-S3 pin configuration
+  .\ml\results\milestone11_firmware_audit.md:57 -> - **`wokwi/diagram.json`**: Virtual circuit layout (ESP32-S3 / RP2040).
+  .\ml\results\milestone11_firmware_audit.md:61 -> ### F. Remaining ESP32 / EloquentTinyML Dependencies
+  .\ml\results\milestone11_firmware_audit.md:63 -> - The production Pico 2 W firmware build path (`CMakeLists.txt` + `firmware/src/`) does **not** include `<EloquentTinyML
+  .\ml\results\milestone11_firmware_audit.md:64 -> - EloquentTinyML remains present **only** in the legacy `wokwi/libraries.txt` and root `firmware/model_runner.cpp` for o
+  .\ml\results\performance_summary.md:40 -> PHYSICAL ESP32-S3 STATUS:
+  .\ml\results\wokwi_platform_status.md:25 -> | **Board Identifier** | `board-pi-pico` / ESP32-S3 legacy | Raspberry Pi Pico 2 W |
+  .\ml\results\wokwi_platform_status.md:39 -> > Wokwi execution runs under an RP2040 / ESP32-S3 simulation model. Benchmarks and execution speeds measured within Wokw
+  .\ml\src\config.py:42 -> # MFE Feature Extraction Configuration (TinyML ESP32-S3 Efficient)
+  .\ml\src\model.py:18 -> Builds a custom lightweight 1D-CNN model for wake-word detection on edge devices (ESP32-S3).
+  .\ml\src\__pycache__\model.cpython-311.pyc:22 -> Builds a custom lightweight 1D-CNN model for wake-word detection on edge devices (ESP32-S3).
+  .\scripts\benchmark_end_to_end.py:264 -> PHYSICAL ESP32-S3 STATUS:
+  .\wokwi\diagram.json:7 -> "type": "board-esp32-s3-devkitc-1",
+=== SEARCH TERM: ESP32-S3 (29 hits) ===
+  .\dataset\README.md:41 -> To ensure robust model generalization on edge hardware (ESP32-S3):
+  .\firmware\config.h:4 -> // Microcontroller & Hardware Pins (ESP32-S3 Wokwi Circuit)
+  .\firmware\sketch.ino:85 -> Serial.println(F("Target MCU: ESP32-S3 | Runtime: TFLite Micro"));
+  .\ml\results\integration_architecture.md:30 -> |               4. ESP32-S3 WOKWI HARDWARE ACTUATORS                |
+  .\ml\results\integration_architecture.md:48 -> | **Wokwi Circuit Simulation** | **SIMULATED** | ESP32-S3 virtual hardware simulation environment. |
+  .\ml\results\integration_inventory.md:32 -> * **Microcontroller:** ESP32-S3 (`board-esp32-s3-devkitc-1`)
+  .\ml\results\milestone10_platform_audit.md:5 -> **Migration Scope:** ESP32-S3 DevKitC-1 → Raspberry Pi Pico 2 W (RP2350 / ARM Cortex-M33)
+  .\ml\results\milestone10_platform_audit.md:53 -> │   ├── diagram.json               # ESP32-S3 circuit diagram
+  .\ml\results\milestone10_platform_audit.md:63 -> - GPIO Pin mappings hardcoded for ESP32-S3 DevKitC-1 (`PIN_OLED_SDA 8`, `PIN_OLED_SCL 9`, `PIN_LED_GREEN 4`, `PIN_LED_RE
+  .\ml\results\milestone10_platform_audit.md:64 -> - Header comments explicitly referencing `(ESP32-S3 Wokwi Circuit)`.
+  .\ml\results\milestone10_platform_audit.md:67 -> - Serial banner output referencing `Target MCU: ESP32-S3`.
+  .\ml\results\milestone10_platform_audit.md:72 -> - Component declaration `"type": "board-esp32-s3-devkitc-1"`.
+  .\ml\results\milestone10_platform_audit.md:123 -> - **`wokwi/diagram.json`**: Board layout for ESP32-S3 DevKitC-1 with SSD1306 OLED, Green LED, Red LED, and Buzzer.
+  .\ml\results\milestone10_platform_audit.md:131 -> - **Green LED**: `PIN_LED_GREEN` (GPIO 4 on ESP32-S3) turned HIGH on wake-word detection.
+  .\ml\results\milestone10_platform_audit.md:132 -> - **Red LED**: `PIN_LED_RED` (GPIO 5 on ESP32-S3) turned HIGH when idle / no wake-word.
+  .\ml\results\milestone10_platform_audit.md:133 -> - **Piezo Buzzer**: `PIN_BUZZER` (GPIO 6 on ESP32-S3) pulsed using `tone(PIN_BUZZER, 2000, 150)` on detection.
+  .\ml\results\milestone10_platform_audit.md:154 -> All project components have been audited. The repository contains a complete, working ML training and verification pipel
+  .\ml\results\milestone10_report.md:1 -> # MILESTONE 10 FINAL REPORT — ESP32-S3 TO RASPBERRY PI PICO 2 W (RP2350) MIGRATION & DEPLOYMENT PIPELINE UNIFICATION
+  .\ml\results\milestone10_report.md:14 -> - Identified all ESP32-S3 pinouts, EloquentTinyML library dependencies, TFLM scripts, MFE configuration, Wokwi diagram f
+  .\ml\results\milestone11_firmware_audit.md:26 -> ├── config.h                    # [LEGACY] Wokwi ESP32-S3 pin configuration
+  .\ml\results\milestone11_firmware_audit.md:57 -> - **`wokwi/diagram.json`**: Virtual circuit layout (ESP32-S3 / RP2040).
+  .\ml\results\performance_summary.md:40 -> PHYSICAL ESP32-S3 STATUS:
+  .\ml\results\wokwi_platform_status.md:25 -> | **Board Identifier** | `board-pi-pico` / ESP32-S3 legacy | Raspberry Pi Pico 2 W |
+  .\ml\results\wokwi_platform_status.md:39 -> > Wokwi execution runs under an RP2040 / ESP32-S3 simulation model. Benchmarks and execution speeds measured within Wokw
+  .\ml\src\config.py:42 -> # MFE Feature Extraction Configuration (TinyML ESP32-S3 Efficient)
+  .\ml\src\model.py:18 -> Builds a custom lightweight 1D-CNN model for wake-word detection on edge devices (ESP32-S3).
+  .\ml\src\__pycache__\model.cpython-311.pyc:22 -> Builds a custom lightweight 1D-CNN model for wake-word detection on edge devices (ESP32-S3).
+  .\scripts\benchmark_end_to_end.py:264 -> PHYSICAL ESP32-S3 STATUS:
+  .\wokwi\diagram.json:7 -> "type": "board-esp32-s3-devkitc-1",
+=== SEARCH TERM: wokwi (49 hits) ===
+  .\firmware\config.h:4 -> // Microcontroller & Hardware Pins (ESP32-S3 Wokwi Circuit)
+  .\firmware\model_runner.cpp:5 -> // Include EloquentTinyML for ESP32 Arduino / Wokwi TFLite Micro execution
+  .\ml\results\integration_architecture.md:30 -> |               4. ESP32-S3 WOKWI HARDWARE ACTUATORS                |
+  .\ml\results\integration_architecture.md:48 -> | **Wokwi Circuit Simulation** | **SIMULATED** | ESP32-S3 virtual hardware simulation environment. |
+  .\ml\results\integration_inventory.md:4 -> SIH2672 TINYML WOKWI INTEGRATION INVENTORY
+  .\ml\results\integration_inventory.md:31 -> ## 3. WOKWI HARDWARE CIRCUIT & PIN MAPPING (PROJECT B)
+  .\ml\results\integration_inventory.md:40 -> ## 4. WOKWI LIBRARIES
+  .\ml\results\milestone10_platform_audit.md:52 -> ├── wokwi/                         # Wokwi Web Simulator Assets
+  .\ml\results\milestone10_platform_audit.md:64 -> - Header comments explicitly referencing `(ESP32-S3 Wokwi Circuit)`.
+  .\ml\results\milestone10_platform_audit.md:71 -> 4. **`wokwi/diagram.json`**:
+  .\ml\results\milestone10_platform_audit.md:79 -> - **`wokwi/libraries.txt`**: Line 4 lists `EloquentTinyML`.
+  .\ml\results\milestone10_platform_audit.md:121 -> ## 7. Identified Wokwi-Specific Files
+  .\ml\results\milestone10_platform_audit.md:123 -> - **`wokwi/diagram.json`**: Board layout for ESP32-S3 DevKitC-1 with SSD1306 OLED, Green LED, Red LED, and Buzzer.
+  .\ml\results\milestone10_platform_audit.md:124 -> - **`wokwi/libraries.txt`**: Library dependencies (`Adafruit SSD1306`, `Adafruit GFX Library`, `EloquentTinyML`).
+  .\ml\results\milestone10_report.md:14 -> - Identified all ESP32-S3 pinouts, EloquentTinyML library dependencies, TFLM scripts, MFE configuration, Wokwi diagram f
+  .\ml\results\milestone10_report.md:61 -> ### Task 9 — Wokwi Simulation Limits Documented
+  .\ml\results\milestone10_report.md:62 -> - Documented in [`ml/results/wokwi_platform_status.md`](file:///d:/SIH%202026/Voice_Activator_Project/ml/results/wokwi_p
+  .\ml\results\milestone11_firmware_audit.md:11 -> The `firmware/` root contains both the newly refactored modular C++ firmware architecture (`firmware/src/`, `firmware/in
+  .\ml\results\milestone11_firmware_audit.md:26 -> ├── config.h                    # [LEGACY] Wokwi ESP32-S3 pin configuration
+  .\ml\results\milestone11_firmware_audit.md:29 -> ├── sketch.ino                  # [LEGACY] Wokwi Arduino entry point
+  .\ml\results\milestone11_firmware_audit.md:56 -> ### E. Wokwi-Specific Code
+  .\ml\results\milestone11_firmware_audit.md:57 -> - **`wokwi/diagram.json`**: Virtual circuit layout (ESP32-S3 / RP2040).
+  .\ml\results\milestone11_firmware_audit.md:58 -> - **`wokwi/libraries.txt`**: Legacy Arduino dependencies (`EloquentTinyML`, `Adafruit SSD1306`, `Adafruit GFX`).
+  .\ml\results\milestone11_firmware_audit.md:59 -> - **`firmware/sketch.ino`**: Legacy Arduino entry point for Wokwi simulation.
+  .\ml\results\milestone11_firmware_audit.md:64 -> - EloquentTinyML remains present **only** in the legacy `wokwi/libraries.txt` and root `firmware/model_runner.cpp` for o
+  .\ml\results\milestone11_firmware_audit.md:68 -> - They are preserved to ensure legacy scripts and Wokwi simulation do not break.
+  .\ml\results\milestone11_report.md:1 -> # MILESTONE 11 FINAL REPORT — PICO 2 W FIRMWARE VALIDATION, WOKWI COMPATIBILITY, AND LIVE I2S MIC PREPARATION
+  .\ml\results\milestone11_report.md:29 -> - Wokwi simulation preserved for RP2040 test-vector regression testing, explicitly labeled as `Wokwi RP2040 firmware reg
+  .\ml\results\milestone11_report.md:35 -> 6. **Wokwi Limitations**:
+  .\ml\results\milestone11_report.md:36 -> - Wokwi simulates RP2040 (Cortex-M0+), lacking native RP2350 (Cortex-M33) hardware simulation.
+  .\ml\results\milestone12_report.md:12 -> | System Component | Software Verified | Wokwi RP2040 Verified | Physical Hardware Verified | Verification Evidence / Re
+  .\ml\results\milestone12_report.md:32 -> - **Wokwi RP2040 Regression Simulation**: **PASS — WOKWI RP2040 REGRESSION ONLY**
+  .\ml\results\milestone12_report.md:42 -> PASS — SOFTWARE ONLY & WOKWI REGRESSION VERIFIED (HARDWARE VALIDATION PENDING PHYSICAL SETUP)
+  .\ml\results\performance_summary.md:37 -> WOKWI STATUS:
+  .\ml\results\wokwi_platform_status.md:1 -> # MILESTONE 10 — WOKWI SIMULATION PLATFORM STATUS
+  .\ml\results\wokwi_platform_status.md:4 -> **Wokwi Simulator Target:** Raspberry Pi Pico (`board-pi-pico` / RP2040 / ARM Cortex-M0+)
+  .\ml\results\wokwi_platform_status.md:9 -> ## 1. Wokwi Target Compatibility Audit
+  .\ml\results\wokwi_platform_status.md:12 -> - As of current Wokwi platform features, Wokwi supports the original Raspberry Pi Pico board (`board-pi-pico` based on t
+  .\ml\results\wokwi_platform_status.md:13 -> - Wokwi does **NOT** yet provide a native RP2350 (ARM Cortex-M33) or Pico 2 W hardware simulator model.
+  .\ml\results\wokwi_platform_status.md:16 -> - To maintain interactive virtual testing capabilities without fabricating hardware support, Wokwi is preserved strictly
+  .\ml\results\wokwi_platform_status.md:17 -> - The Wokwi simulation validates firmware control logic, actuator outputs (OLED display, status LEDs, buzzer tones), and
+  .\ml\results\wokwi_platform_status.md:23 -> | Feature | Wokwi Simulator Target | Physical Deployment Target |
+  .\ml\results\wokwi_platform_status.md:39 -> > Wokwi execution runs under an RP2040 / ESP32-S3 simulation model. Benchmarks and execution speeds measured within Wokw
+  .\scripts\benchmark_end_to_end.py:261 -> WOKWI STATUS:
+  .\wokwi\diagram.json:4 -> "editor": "wokwi",
+  .\wokwi\diagram.json:23 -> "type": "wokwi-led",
+  .\wokwi\diagram.json:32 -> "type": "wokwi-led",
+  .\wokwi\diagram.json:41 -> "type": "wokwi-buzzer",
+  .\wokwi\libraries.txt:1 -> # Wokwi Library Dependencies
+=== SEARCH TERM: diagram.json (4 hits) ===
+  .\ml\results\milestone10_platform_audit.md:53 -> │   ├── diagram.json               # ESP32-S3 circuit diagram
+  .\ml\results\milestone10_platform_audit.md:71 -> 4. **`wokwi/diagram.json`**:
+  .\ml\results\milestone10_platform_audit.md:123 -> - **`wokwi/diagram.json`**: Board layout for ESP32-S3 DevKitC-1 with SSD1306 OLED, Green LED, Red LED, and Buzzer.
+  .\ml\results\milestone11_firmware_audit.md:57 -> - **`wokwi/diagram.json`**: Virtual circuit layout (ESP32-S3 / RP2040).
+=== SEARCH TERM: libraries.txt (5 hits) ===
+  .\ml\results\milestone10_platform_audit.md:54 -> │   └── libraries.txt              # Arduino library list (EloquentTinyML, Adafruit SSD1306, GFX)
+  .\ml\results\milestone10_platform_audit.md:79 -> - **`wokwi/libraries.txt`**: Line 4 lists `EloquentTinyML`.
+  .\ml\results\milestone10_platform_audit.md:124 -> - **`wokwi/libraries.txt`**: Library dependencies (`Adafruit SSD1306`, `Adafruit GFX Library`, `EloquentTinyML`).
+  .\ml\results\milestone11_firmware_audit.md:58 -> - **`wokwi/libraries.txt`**: Legacy Arduino dependencies (`EloquentTinyML`, `Adafruit SSD1306`, `Adafruit GFX`).
+  .\ml\results\milestone11_firmware_audit.md:64 -> - EloquentTinyML remains present **only** in the legacy `wokwi/libraries.txt` and root `firmware/model_runner.cpp` for o
+=== SEARCH TERM: model_data.h (22 hits) ===
+  .\firmware\model_runner.cpp:2 -> #include "model_data.h"
+  .\firmware\src\model_runner.cpp:2 -> #include "../model/model_data.h"
+  .\ml\results\integration_architecture.md:17 -> |  hero_arise_int8.tflite (13,232 Bytes) -> C Array (model_data.h)  |
+  .\ml\results\integration_architecture.md:43 -> | **C-Array Representation** | **REAL** | Auto-generated hex byte array in `firmware/model_data.h`. |
+  .\ml\results\milestone10_platform_audit.md:20 -> │   ├── model_data.h               # INT8 TFLite model C array byte array (13,232 bytes)
+  .\ml\results\milestone10_platform_audit.md:95 -> - **`scripts/tflite_to_c_array.py`**: Reads `hero_arise_int8.tflite` binary file and writes C array `hero_arise_model[]`
+  .\ml\results\milestone10_report.md:30 -> - Model Size: `13,232 bytes` (12.92 KB), matching `hero_arise_model` byte-for-byte in `model_data.h`.
+  .\ml\results\milestone10_report.md:44 -> - `firmware/model/model_data.h`: Alignment-preserved INT8 model byte array.
+  .\ml\results\milestone11_firmware_audit.md:19 -> │   └── model_data.h            # [MODULAR] 8-byte aligned INT8 TFLite model array (13,232 bytes)
+  .\ml\results\milestone11_firmware_audit.md:27 -> ├── model_data.h                # [LEGACY] Root model array header
+  .\ml\results\milestone11_firmware_audit.md:40 -> - **`firmware/model/model_data.h`**: INT8 model byte array (`hero_arise_model`, 13,232 bytes).
+  .\ml\results\milestone11_firmware_audit.md:67 -> - `firmware/sketch.ino`, `firmware/config.h` (root), `firmware/model_runner.h/.cpp` (root), and `firmware/model_data.h` 
+  .\ml\results\milestone11_hardware_readiness.md:15 -> | **[X] model_data.h verified** | **PASS** | 13,232-byte FlatBuffer array verified byte-for-byte against `hero_arise_int
+  .\ml\results\milestone11_report.md:13 -> - Model FlatBuffer: `hero_arise_int8.tflite` (13,232 bytes, 4,083 parameters) matches `model_data.h` byte-for-byte.
+  .\ml\results\milestone11_runtime_verification.md:5 -> **Model Source:** [`firmware/model/model_data.h`](file:///d:/SIH%202026/Voice_Activator_Project/firmware/model/model_dat
+  .\ml\results\milestone11_runtime_verification.md:14 -> | **Model Loader** | `tflite::GetModel(hero_arise_model)` | **VERIFIED** — Direct FlatBuffer pointer from `model_data.h`
+  .\ml\results\milestone12_physical_memory_report.md:14 -> | **INT8 TFLite Model Array (`model_data.h`)** | `12.92 KB` (`13,232 bytes`) | `12.92 KB` (`13,232 bytes`) | **0 bytes (
+  .\ml\results\milestone12_report.md:22 -> | **INT8 Model Array** | **PASS** (13,232 Bytes)| **PASS** | **PASS** (FlatBuffer) | [`firmware/model/model_data.h`](fil
+  .\ml\results\pico2w_build_report.md:30 -> - **INT8 Model Byte Array**: **100% COMPLETE & VERIFIED** (`firmware/model/model_data.h`, 13,232 bytes).
+  .\ml\results\pico2w_model_compatibility.md:4 -> **Header File:** `firmware/model_data.h` (and `firmware/model/model_data.h`)
+  .\ml\results\pico2w_model_compatibility.md:27 -> - The byte array `hero_arise_model` defined in `model_data.h` exactly reproduces the FlatBuffer binary `hero_arise_int8.
+  .\scripts\tflite_to_c_array.py:7 -> HEADER_PATH = BASE_DIR / "firmware" / "model_data.h"
+=== SEARCH TERM: test_vectors.h (10 hits) ===
+  .\firmware\sketch.ino:8 -> #include "test_vectors.h"
+  .\firmware\src\main.cpp:7 -> #include "../test_vectors.h"
+  .\ml\results\integration_architecture.md:18 -> |  Precomputed INT8 Test Vectors -> C Header (test_vectors.h)       |
+  .\ml\results\milestone10_platform_audit.md:24 -> │   └── test_vectors.h             # Precomputed INT8 test vector header (3 samples: target, unknown, noise)
+  .\ml\results\milestone10_platform_audit.md:139 -> - **`scripts/generate_test_vectors.py`**: Identifies highest-confidence correctly classified sample for each class, quan
+  .\ml\results\milestone10_platform_audit.md:140 -> - **`firmware/test_vectors.h`**: Header file containing `struct TestVector` and static `TEST_VECTORS[]` array with 3 sam
+  .\ml\results\milestone10_report.md:55 -> - Retained embedded test-vector execution path using precomputed test vectors (`firmware/test_vectors.h`).
+  .\ml\results\milestone11_firmware_audit.md:30 -> └── test_vectors.h              # [SHARED] Deterministic test vector header (3 samples)
+  .\ml\results\milestone11_firmware_audit.md:44 -> - **`firmware/test_vectors.h`**: Precomputed INT8 test vector array (`TEST_VECTORS[]`, 3 samples: target, unknown, noise
+  .\scripts\generate_test_vectors.py:112 -> header_path = BASE_DIR / "firmware" / "test_vectors.h"

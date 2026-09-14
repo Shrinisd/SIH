@@ -1,0 +1,40 @@
+{
+  "model_file": "hero_arise_int8.tflite",
+  "model_size_bytes": 13232,
+  "model_size_kb": 12.92,
+  "input_name": "serving_default_mfe_input:0",
+  "input_shape": [
+    1,
+    49,
+    40
+  ],
+  "input_dtype": "int8",
+  "input_quantization": {
+    "scale": 0.0690709799528122,
+    "zero_point": 72
+  },
+  "output_name": "StatefulPartitionedCall_1:0",
+  "output_shape": [
+    1,
+    3
+  ],
+  "output_dtype": "int8",
+  "output_quantization": {
+    "scale": 0.00390625,
+    "zero_point": -128
+  },
+  "class_mapping": {
+    "0": "target_word",
+    "1": "unknown_words",
+    "2": "background_noise"
+  },
+  "required_ops": [
+    "CONV_1D / CONV_2D",
+    "MAX_POOLING_1D / MAX_POOL_2D",
+    "GLOBAL_AVERAGE_POOLING",
+    "FULLY_CONNECTED (Dense)",
+    "SOFTMAX",
+    "QUANTIZE",
+    "DEQUANTIZE"
+  ]
+}

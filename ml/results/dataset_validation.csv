@@ -1,0 +1,4 @@
+filename,path,class,valid,sample_rate,channels,bit_depth,duration_sec,n_samples,file_size_bytes,rms_energy,max_amplitude,errors,warnings
+background_noise_raw.wav,dataset\raw\background_noise\background_noise_raw.wav,background_noise,True,16000,1,16,191.5879,3065406,6130890,2878.57,32581,,
+target_words_raw.wav,dataset\raw\target_word\target_words_raw.wav,target_word,True,16000,1,16,167.6713,2682741,5365560,1278.39,24117,,Continuous speech recording detected (167.67s) - will be segmented into 1.0s clips during preparation
+unknown_words_raw.wav,dataset\raw\unknown_words\unknown_words_raw.wav,unknown_words,True,16000,1,16,93.2978,1492765,2985608,1489.2,22376,,Continuous speech recording detected (93.30s) - will be segmented into 1.0s clips during preparation

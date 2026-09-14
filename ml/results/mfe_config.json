@@ -1,0 +1,47 @@
+{
+  "sample_rate_hz": 16000,
+  "n_fft": 512,
+  "frame_length_samples": 480,
+  "frame_length_ms": 30.0,
+  "frame_stride_samples": 320,
+  "frame_stride_ms": 20.0,
+  "n_mel_filters": 40,
+  "frequency_min_hz": 20.0,
+  "frequency_max_hz": 8000.0,
+  "single_sample_feature_shape": [
+    49,
+    40
+  ],
+  "tensor_shapes": {
+    "train": {
+      "X": [
+        316,
+        49,
+        40
+      ],
+      "y": [
+        316
+      ]
+    },
+    "validation": {
+      "X": [
+        68,
+        49,
+        40
+      ],
+      "y": [
+        68
+      ]
+    },
+    "test": {
+      "X": [
+        67,
+        49,
+        40
+      ],
+      "y": [
+        67
+      ]
+    }
+  }
+}

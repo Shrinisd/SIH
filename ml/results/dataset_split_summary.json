@@ -1,0 +1,31 @@
+{
+  "status": "COMPLETED",
+  "total_samples": 451,
+  "training_samples": 316,
+  "validation_samples": 68,
+  "test_samples": 67,
+  "leakage_test": "PASS",
+  "class_mapping": {
+    "0": "target_word",
+    "1": "unknown_words",
+    "2": "background_noise"
+  },
+  "counts_per_split": {
+    "train": {
+      "target_word": 117,
+      "unknown_words": 65,
+      "background_noise": 134
+    },
+    "validation": {
+      "target_word": 25,
+      "unknown_words": 14,
+      "background_noise": 29
+    },
+    "test": {
+      "target_word": 25,
+      "unknown_words": 14,
+      "background_noise": 28
+    }
+  },
+  "rejected_files": []
+}

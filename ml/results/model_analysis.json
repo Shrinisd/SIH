@@ -1,0 +1,21 @@
+{
+  "model_name": "HeroArise_Tiny1DCNN",
+  "input_shape": [
+    49,
+    40
+  ],
+  "output_shape": [
+    3
+  ],
+  "total_parameters": 4083,
+  "trainable_parameters": 4083,
+  "non_trainable_parameters": 0,
+  "estimated_float32_weight_size_kb": 15.95,
+  "estimated_int8_weight_size_kb": 3.99,
+  "dummy_forward_pass_status": "PASS",
+  "class_mapping": {
+    "0": "target_word",
+    "1": "unknown_words",
+    "2": "background_noise"
+  }
+}

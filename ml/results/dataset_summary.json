@@ -1,0 +1,30 @@
+{
+  "total_files": 3,
+  "valid_files": 3,
+  "invalid_files": 0,
+  "non_wav_ignored_files": 3,
+  "duplicate_filenames_detected": 0,
+  "classes": {
+    "target_word": {
+      "total_files": 1,
+      "valid": 1,
+      "invalid": 0,
+      "total_duration_sec": 167.67,
+      "avg_duration_sec": 167.67
+    },
+    "unknown_words": {
+      "total_files": 1,
+      "valid": 1,
+      "invalid": 0,
+      "total_duration_sec": 93.3,
+      "avg_duration_sec": 93.3
+    },
+    "background_noise": {
+      "total_files": 1,
+      "valid": 1,
+      "invalid": 0,
+      "total_duration_sec": 191.59,
+      "avg_duration_sec": 191.59
+    }
+  }
+}
