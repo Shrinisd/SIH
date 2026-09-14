@@ -45,7 +45,7 @@ class StreamSession {
   // the server's response line, then closes the connection.
   void end();
 
-  bool connected() const { return client_.connected(); }
+  bool connected() { return client_.connected(); }
 
  private:
   WiFiClient client_;
