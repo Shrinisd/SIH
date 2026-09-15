@@ -39,6 +39,8 @@ _transcriber = None
 def _get_transcriber():
     """Lazily load faster-whisper if it's available; otherwise None."""
     global _transcriber
+    if _transcriber is False:
+        return None
     if _transcriber is not None:
         return _transcriber
     try:
@@ -46,8 +48,8 @@ def _get_transcriber():
         _transcriber = WhisperModel("base.en", device="cpu", compute_type="int8")
     except Exception:
         _transcriber = False
-    return _transcriber or None
-
+        return None
+    return _transcriber
 
 def _read_chunked_body(rfile):
     """Reads an HTTP request body encoded with Transfer-Encoding: chunked."""

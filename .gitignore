@@ -29,3 +29,7 @@ search_results.txt
 
 # ASR reference server output (local captures, never commit)
 asr_captures/
+# Regeneratable from dataset/raw via `python3 scripts/prepare_dataset.py`
+# (fixed random seed → same split every time) -- not worth tracking, and it
+# grows without bound since old runs' leftovers never get cleaned up
+dataset/processed/
