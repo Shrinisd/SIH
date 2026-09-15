@@ -100,7 +100,7 @@ def send_pcm_chunked(host, port, path, pcm_iter):
     transfer encoding -- the same wire format firmware/src/asr_client.cpp
     uses, so this exercises the real receiving code in
     scripts/asr_stream_server.py, not a shortcut."""
-    conn = http.client.HTTPConnection(host, port, timeout=10)
+    conn = http.client.HTTPConnection(host, port, timeout=60)
     conn.putrequest("POST", path, skip_accept_encoding=True)
     conn.putheader("Content-Type", "audio/L16;rate=16000;channels=1")
     conn.putheader("Transfer-Encoding", "chunked")
