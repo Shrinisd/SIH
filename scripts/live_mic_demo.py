@@ -74,9 +74,9 @@ except ImportError:
 SAMPLE_RATE = 16000
 WINDOW_SAMPLES = 16000       # 1.0s, matches firmware audio_capture::kWindowSamples
 HOP_SAMPLES = 320            # 20ms, matches MFE hop / firmware ring-buffer hop
-INPUT_SCALE = 0.06907098     # must match firmware/include/config.h INPUT_SCALE
-INPUT_ZERO_POINT = 72        # must match firmware/include/config.h INPUT_ZERO_POINT
-TARGET_CLASS_ID = 0
+INPUT_SCALE = 0.06526922     # must match firmware/include/config.h INPUT_SCALE
+INPUT_ZERO_POINT = 84   
+TARGET_CLASS_ID = 0     # must match firmware/include/config.h INPUT_ZERO_POINT
 CLASS_NAMES = {0: "target_word (Hero Arise)", 1: "unknown_words", 2: "background_noise"}
 
 MODEL_PATH = BASE_DIR / "ml" / "models" / "hero_arise_int8.tflite"

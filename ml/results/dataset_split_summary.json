@@ -1,9 +1,9 @@
 {
   "status": "COMPLETED",
-  "total_samples": 451,
-  "training_samples": 316,
-  "validation_samples": 68,
-  "test_samples": 67,
+  "total_samples": 591,
+  "training_samples": 412,
+  "validation_samples": 90,
+  "test_samples": 89,
   "leakage_test": "PASS",
   "class_mapping": {
     "0": "target_word",
@@ -12,19 +12,19 @@
   },
   "counts_per_split": {
     "train": {
-      "target_word": 117,
-      "unknown_words": 65,
-      "background_noise": 134
+      "target_word": 143,
+      "unknown_words": 93,
+      "background_noise": 176
     },
     "validation": {
-      "target_word": 25,
-      "unknown_words": 14,
-      "background_noise": 29
+      "target_word": 32,
+      "unknown_words": 20,
+      "background_noise": 38
     },
     "test": {
-      "target_word": 25,
-      "unknown_words": 14,
-      "background_noise": 28
+      "target_word": 32,
+      "unknown_words": 20,
+      "background_noise": 37
     }
   },
   "rejected_files": []

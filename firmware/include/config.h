@@ -42,8 +42,8 @@
 
 // ─── INT8 Model Quantization Parameters ─────────────────────────────────────
 // (Verified from tflite_model_spec.json)
-#define INPUT_SCALE        0.06907098f
-#define INPUT_ZERO_POINT   72
+#define INPUT_SCALE        0.06526922f
+#define INPUT_ZERO_POINT   84
 #define OUTPUT_SCALE       0.00390625f
 #define OUTPUT_ZERO_POINT  -128
 

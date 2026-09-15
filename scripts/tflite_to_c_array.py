@@ -4,7 +4,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 TFLITE_PATH = BASE_DIR / "ml" / "models" / "hero_arise_int8.tflite"
-HEADER_PATH = BASE_DIR / "firmware" / "model_data.h"
+HEADER_PATH = BASE_DIR / "firmware" / "include" / "model_data.h"
 
 def convert_tflite_to_c_array():
     HEADER_PATH.parent.mkdir(parents=True, exist_ok=True)
